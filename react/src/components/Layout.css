@@ -1,0 +1,131 @@
+/* General Layout */
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #343a40;
+  color: white;
+  padding-top: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: width 0.3s ease;
+  overflow-y: auto;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+  background-color: #495057;
+  display: block;
+  border-radius: 5px;
+}
+
+.sidebar.hide {
+  width: 0;
+  overflow: hidden;
+}
+
+/* Main Content */
+.content-wrapper {
+  margin-left: 250px;
+  padding-top: 100px;
+  flex: 1;
+  overflow-y: auto;
+  transition: margin-left 0.3s ease;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Para centrar el contenido horizontalmente */
+}
+
+/* Table container */
+.table-container {
+  width: 90%; /* Ajusta el ancho a un 90% del contenedor */
+  max-width: 1200px; /* Define un ancho máximo para no expandir demasiado la tabla */
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para que la tabla resalte */
+  border-radius: 8px; /* Bordes redondeados para un mejor estilo */
+}
+
+/* Table */
+table {
+  width: 100%; /* La tabla ocupa el 100% del ancho del contenedor */
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th, table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+table td {
+  background-color: #fff;
+}
+
+/* Table responsive */
+@media (max-width: 768px) {
+  .table-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .content-wrapper {
+    margin-left: 0;
+    padding-top: 50px;
+  }
+}
+
+.content-wrapper.expanded {
+  margin-left: 0; /* Expand content to full width when sidebar is hidden */
+}
+
+.navbar {
+  height: 60px;
+  z-index: 9999;
+  transition: margin-left 0.3s ease;
+}
+
+/* Estilos responsivos */
+@media (max-width: 991px) {
+  .sidebar {
+    width: 0;
+    overflow: hidden;
+  }
+
+  .sidebar.show {
+    width: 250px;
+  }
+
+  .content-wrapper {
+    margin-left: 0;
+  }
+}
